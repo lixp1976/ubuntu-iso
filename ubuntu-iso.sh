@@ -153,7 +153,7 @@ fi
 seed_file="ubuntu.seed"
 if [[ ! -f $tmp/$seed_file ]]; then
     echo -n " downloading $seed_file: "
-    download "https://raw.githubusercontent.com/englert/ubuntu-iso/master/$seed_file"
+    download "https://raw.githubusercontent.com/lixp1976/ubuntu-iso/master/$seed_file"
 fi
 
 # install required packages
@@ -208,10 +208,10 @@ sed -i -r 's/timeout\s+[0-9]+/timeout 1/g' $tmp/iso_new/isolinux/isolinux.cfg
 # set late command
 
 if [[ $ub1604 == "yes" ]]; then
-   late_command="apt-install wget; in-target wget --no-check-certificate -O /home/$username/start.sh https://github.com/englert/ubuntu-iso/raw/master/start.sh ;\
+   late_command="apt-install wget; in-target wget --no-check-certificate -O /home/$username/start.sh https://raw.githubusercontent.com/lixp1976/ubuntu-iso/master/start.sh ;\
      in-target chmod +x /home/$username/start.sh ;"
 else 
-   late_command="chroot /target wget -O /home/$username/start.sh https://github.com/englert/ubuntu-iso/raw/master/start.sh ;\
+   late_command="chroot /target wget -O /home/$username/start.sh https://raw.githubusercontent.com/lixp1976/ubuntu-iso/master/start.sh ;\
      chroot /target chmod +x /home/$username/start.sh ;"
 fi
 
